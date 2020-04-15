@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/me/me",
+    "pages/edit/edit",
+    "pages/regist/regist",
+    "pages/search/search",
+    "pages/report/report",
+    "pages/videoinfo/videoinfo",
+    "pages/bgm/bgm"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffff",
+    "navigationBarTitleText": "衡师视频",
+    "navigationBarTextStyle": "black"
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

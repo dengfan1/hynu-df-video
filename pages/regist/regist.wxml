@@ -1,0 +1,65 @@
+<view>
+  <!-- <view class="login_icon">
+        <image class="login_img" src="../resource/images/in.jpg"></image>
+    </view> -->
+  <view class="login_from">
+    <form bindsubmit='doRegist'>
+      <!--昵称-->
+      <view class="inputView">
+        <image class="imagename" src="../resource/images/username.png"></image>
+        <label class="loginLabel">昵称</label>
+        <input name="nickname" class="inputusername" placeholder="点这里输入昵称" />
+      </view>
+      <view class="line"></view>
+      <!--账号-->
+      <view class="inputView">
+        <image class="imagename" src="../resource/images/username.png"></image>
+        <label class="loginLabel">账号</label>
+        <input name="username" class="inputusername" placeholder="点这里输入账号" />
+      </view>
+
+      <view class="line"></view>
+
+      <!--密码-->
+      <view class="inputView">
+        <image class="imagekey" src="../resource/images/password.png"></image>
+        <label class="loginLabel">密码</label>
+        <input name="password" class="inputpassword" password="true" placeholder="点这里输入密码" />
+      </view>
+      <view class="line"></view>
+      <!--确认密码-->
+      <view class="inputView">
+        <image class="imagekey" src="../resource/images/password.png"></image>
+        <label class="loginLabel">确认密码</label>
+        <input name="repassword" class="inputpassword" password="true" placeholder="请再次输入密码" />
+      </view>
+      <view class="line"></view>
+      <!--学院-->
+      <view class="inputView">
+        <image class="imagekey" src="../resource/images/password.png"></image>
+        <label class="loginLabel">学院</label>
+        <input name="youclass" class="inputpassword"  placeholder="请再次输入学院" />
+      </view>
+     <view class="line"></view>
+
+      <!--按钮-->
+      <view>
+        <button class="regist" type="primary" form-type='submit'>立即注册</button>
+      </view>
+
+      <view>
+        <button class="login" type="warn" bindtap="goLoginPage">返回登录</button>
+      </view>
+
+
+    </form>
+
+
+  </view>
+
+  <view class="text">
+    <lable>
+      ! ! ! 请输入自己的学号注册,谢谢配合
+    </lable>
+  </view>
+</view>

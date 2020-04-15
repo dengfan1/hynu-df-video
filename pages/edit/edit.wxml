@@ -1,0 +1,48 @@
+<view>
+  <image src="{{faceUrl}}" class="face" bindtap='changeFace'></image>
+  <view class="text">点击头像更换</view>
+  <form bindsubmit='dosubmit'>
+    <!--昵称-->
+    <view class="input">
+      <label class="loginLabel">昵称</label>
+      <input name="nickname" class="inputin" value="{{nickvalue}}" placeholder="" />
+    </view>
+    <view class="line"></view>
+
+
+
+    <!--签名-->
+    <view class="input">
+      <label class="loginLabel">签名</label>
+      <input name="sign" class="inputin" value="{{signvalue}}" placeholder="" />
+    </view>
+    <view class="line"></view>
+
+    <!--学院-->
+    <view class="input">
+      <label class="loginLabel">学院</label>
+      <input name="youclass" class="inputin" value="{{classvalue}}" placeholder="" />
+    </view>
+    <view class="line"></view>
+
+    <view class="input">
+   
+      <radio-group name="radio-group">
+       <label class="loginLabel">性别</label>
+        <label class="sex">
+          <radio value="radio1" />男</label>
+        <label>
+        
+          <radio value="radio2" />女</label>
+      </radio-group>
+    </view>
+
+
+    <!-- 提交 -->
+    <view>
+      <button class="login" type="primary" form-type='submit'>提交</button>
+    </view>
+  </form>
+
+
+</view>
