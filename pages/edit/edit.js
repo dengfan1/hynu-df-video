@@ -107,8 +107,9 @@ Page({
             duration: 2000
           });
 
-          app.setGlobalUserInfo(res.data.data);
-         
+          wx.switchTab({
+            url: '../me/me',
+          })
 
         } else if (res.data.status == 500) {
           // 失败弹出框
@@ -117,6 +118,7 @@ Page({
             icon: 'none',
             duration: 3000
           })
+
         }
       }
     })

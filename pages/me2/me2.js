@@ -6,7 +6,7 @@ Page({
     faceUrl: "../resource/images/noneface.png",
     isMe: true,
     isFollow: false,
-    islogin: true,
+
 
     videoSelClass: "video-info",
     isSelectedWork: "video-info-selected",
@@ -42,7 +42,7 @@ Page({
   },
 
   //页面加载
-  onLoad: function(params) {
+  onLoad: function (params) {
     var me = this;
 
     var user = app.getGlobalUserInfo();
@@ -50,12 +50,6 @@ Page({
     var userId = user.id;
 
     var publisherId = params.publisherId;
-
-    if (userId == null || userId == '' || userId == undefined) {
-      me.setData({
-        islogin: false
-      })
-    }
 
     if (publisherId != null && publisherId != '' && publisherId != undefined) {
 
@@ -67,20 +61,20 @@ Page({
           serverUrl: app.serverUrl
 
         })
-      } else {
-        me.setData({
-          isMe: false,
-          publisherId: publisherId,
-          serverUrl: app.serverUrl
-        })
-        // debugger
+      }else{
+      me.setData({
+        isMe: false,
+        publisherId: publisherId,
+        serverUrl: app.serverUrl
+      })
+     // debugger
       }
       userId = publisherId;
 
     }
 
     me.setData({
-      userId: userId,
+      userId: userId
     })
 
 
@@ -97,7 +91,7 @@ Page({
         'headerUserId': user.id,
         'headerUserToken': user.userToken
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res.data);
         wx.hideLoading();
         if (res.data.status == 200) {
@@ -124,7 +118,7 @@ Page({
             title: res.data.msg,
             duration: 3000,
             icon: "none",
-            success: function() {
+            success: function () {
               wx.redirectTo({
                 url: '../login/login',
               })
@@ -137,7 +131,7 @@ Page({
     me.getMyVideoList(1);
   },
 
-  followMe: function(e) {
+  followMe: function (e) {
     var me = this;
 
     var user = app.getGlobalUserInfo();
@@ -163,7 +157,7 @@ Page({
         'headerUserId': user.id,
         'headerUserToken': user.userToken
       },
-      success: function() {
+      success: function () {
         wx.hideLoading();
         if (followType == '1') {
           me.setData({
@@ -182,7 +176,7 @@ Page({
 
 
   //退出登录
-  logout: function() {
+  logout: function () {
     // var user = app.userInfo;
     var user = app.getGlobalUserInfo();
 
@@ -197,7 +191,7 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res.data);
         wx.hideLoading();
         if (res.data.status == 200) {
@@ -220,13 +214,13 @@ Page({
   },
 
   //更换头像
-  changeFace: function() {
+  changeFace: function () {
     var me = this;
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
       sourceType: ['album'],
-      success: function(res) {
+      success: function (res) {
         var tempFilePaths = res.tempFilePaths;
         console.log(tempFilePaths);
 
@@ -246,7 +240,7 @@ Page({
             'headerUserId': userInfo.id,
             'headerUserToken': userInfo.userToken
           },
-          success: function(res) {
+          success: function (res) {
             var data = JSON.parse(res.data);
             console.log(data);
             wx.hideLoading();
@@ -271,7 +265,7 @@ Page({
                 title: res.data.msg,
                 duration: 2000,
                 icon: "none",
-                success: function() {
+                success: function () {
                   wx.redirectTo({
                     url: '../login/login',
                   })
@@ -289,14 +283,14 @@ Page({
   },
 
   //上传视频
-  uploadVideo: function() {
+  uploadVideo: function () {
 
 
     var me = this;
 
     wx.chooseVideo({
       sourceType: ['album'],
-      success: function(res) {
+      success: function (res) {
         console.log(res);
 
         var duration = res.duration;
@@ -334,7 +328,7 @@ Page({
   },
 
 
-  doSelectWork: function() {
+  doSelectWork: function () {
     this.setData({
       isSelectedWork: "video-info-selected",
       isSelectedLike: "",
@@ -362,7 +356,7 @@ Page({
     this.getMyVideoList(1);
   },
 
-  doSelectLike: function() {
+  doSelectLike: function () {
     this.setData({
       isSelectedWork: "",
       isSelectedLike: "video-info-selected",
@@ -390,7 +384,7 @@ Page({
     this.getMyLikesList(1);
   },
 
-  doSelectFollow: function() {
+  doSelectFollow: function () {
     this.setData({
       isSelectedWork: "",
       isSelectedLike: "",
@@ -418,7 +412,7 @@ Page({
     this.getMyFollowList(1)
   },
 
-  getMyVideoList: function(page) {
+  getMyVideoList: function (page) {
     var me = this;
 
     // 查询视频信息
@@ -434,7 +428,7 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res.data);
         var myVideoList = res.data.data.rows;
         wx.hideLoading();
@@ -449,10 +443,9 @@ Page({
         });
       }
     })
-
   },
 
-  getMyLikesList: function(page) {
+  getMyLikesList: function (page) {
     var me = this;
     var userId = me.data.userId;
 
@@ -466,7 +459,7 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res.data);
         var likeVideoList = res.data.data.rows;
         wx.hideLoading();
@@ -483,7 +476,7 @@ Page({
     })
   },
 
-  getMyFollowList: function(page) {
+  getMyFollowList: function (page) {
     var me = this;
     var userId = me.data.userId;
 
@@ -497,7 +490,7 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res.data);
         var followVideoList = res.data.data.rows;
         wx.hideLoading();
@@ -515,7 +508,7 @@ Page({
   },
 
   // 点击跳转到视频详情页面
-  showVideo: function(e) {
+  showVideo: function (e) {
 
     console.log(e);
 
@@ -541,7 +534,7 @@ Page({
   },
 
   // 到底部后触发加载
-  onReachBottom: function() {
+  onReachBottom: function () {
     var myWorkFalg = this.data.myWorkFalg;
     var myLikesFalg = this.data.myLikesFalg;
     var myFollowFalg = this.data.myFollowFalg;
@@ -599,7 +592,7 @@ Page({
   // },
 
   //编辑资料
-  updateedit: function() {
+  updateedit: function () {
 
     wx.redirectTo({
       url: '../edit/edit',

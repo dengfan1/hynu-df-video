@@ -1,4 +1,4 @@
-   <view wx:for="{{videoList}}" class="item-container">  
+  <view wx:for="{{videoList}}" class="item-container">  
 
 
 

@@ -1,8 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index2/index2",
     "pages/login/login",
     "pages/me/me",
+    "pages/me2/me2",
+    "pages/follow/follow",
     "pages/edit/edit",
     "pages/regist/regist",
     "pages/search/search",
@@ -17,5 +20,26 @@
     "navigationBarTextStyle": "black"
   },
   "debug": true,
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#e64340",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "box-shadow": "0 0 6px 0",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/follow/follow",
+        "text": "关注"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  },
   "sitemapLocation": "sitemap.json"
 }

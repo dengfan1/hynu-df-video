@@ -13,7 +13,7 @@ Page({
     searchContent: ""
   },
 
-  onLoad: function (params) {
+  onLoad: function(params) {
     var me = this;
     var screenWidth = wx.getSystemInfoSync().screenWidth;
     me.setData({
@@ -35,7 +35,7 @@ Page({
     me.getAllVideoList(page, isSaveRecord);
   },
 
-  getAllVideoList: function (page, isSaveRecord) {
+  getAllVideoList: function(page, isSaveRecord) {
     var me = this;
     var serverUrl = app.serverUrl;
     wx.showLoading({
@@ -50,7 +50,7 @@ Page({
       data: {
         videoDesc: searchContent
       },
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading();
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
@@ -78,12 +78,12 @@ Page({
     })
   },
 
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     wx.showNavigationBarLoading();
     this.getAllVideoList(1, 0);
   },
 
-  onReachBottom: function () {
+  onReachBottom: function() {
     var me = this;
     var currentPage = me.data.page;
     var totalPage = me.data.totalPage;
@@ -102,7 +102,7 @@ Page({
     me.getAllVideoList(page, 0);
   },
 
-  showVideoInfo: function (e) {
+  showVideoInfo: function(e) {
     var me = this;
     var videoList = me.data.videoList;
     var arrindex = e.target.dataset.arrindex;

@@ -84,7 +84,10 @@ Page({
                 url: redirectUrl,
               })
             } else {
-              wx.navigateTo({
+              // wx.navigateTo({
+              //   url: '../me/me',
+              // })
+              wx.switchTab({
                 url: '../me/me',
               })
             }

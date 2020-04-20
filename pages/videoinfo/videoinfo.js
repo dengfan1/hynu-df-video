@@ -118,7 +118,7 @@ Page({
 
   //首页 
   showIndex: function() {
-    wx.redirectTo({
+    wx.switchTab({
       url: '../index/index',
     })
   },
@@ -139,11 +139,12 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: '../me/me?publisherId=' + videoInfo.userId,
+        url: '../me2/me2?publisherId=' + videoInfo.userId,
       })
     }
   },
 
+//个人中心
   showMine: function() {
     var user = app.getGlobalUserInfo();
 
@@ -153,7 +154,7 @@ Page({
         url: '../login/login',
       })
     } else {
-      wx.navigateTo({
+      wx.switchTab({
         url: '../me/me',
       })
     }

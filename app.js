@@ -1,5 +1,5 @@
 App({
-  serverUrl:"http://192.168.0.109:8087/",
+  serverUrl: "http://192.168.0.109:8087/",
   userInfo: null,
 
   setGlobalUserInfo:function(user){
